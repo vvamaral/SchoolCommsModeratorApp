@@ -1,2 +1,2 @@
-Flask==2.3.2
-google-cloud-aiplatform==1.49.0
+Flask
+flask-cors

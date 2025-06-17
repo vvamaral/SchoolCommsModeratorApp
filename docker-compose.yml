@@ -1,0 +1,19 @@
+services:
+  moderator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: school-comms-moderator
+    ports:
+      - "8080:8080"  # Flask
+      - "8081:8081"  # LanguageTool
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=main.py
+    command: ["/bin/bash", "/app/run_services.sh"]
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/"]
+      interval: 180s
+      timeout: 5s
+      retries: 3
+      start_period: 30s

@@ -1,0 +1,19 @@
+# Ignorar o ambiente virtual Python
+venv/
+.venv/
+
+# Ignorar arquivos de cache e outros
+__pycache__/
+*.pyc
+*.pyo
+*.log
+.git/
+.DS_Store # Arquivo de cache do macOS
+*.zip
+*.tar.gz
+*.egg-info/
+*.egg
+.env
+.vscode/
+.idea/
+*.iml

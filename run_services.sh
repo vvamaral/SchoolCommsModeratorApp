@@ -32,4 +32,4 @@ if ! curl -s -f --connect-timeout 5 "$LT_URL" > /dev/null; then
 fi
 
 echo "LanguageTool started. Starting Flask app..."
-exec /app/venv/bin/python3 -m flask run --host=0.0.0.0 --port=8080
+exec /app/venv/bin/python3 -m flask --app main run --host=0.0.0.0 --port=8080

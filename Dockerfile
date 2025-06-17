@@ -77,4 +77,4 @@ RUN chmod +x /app/run_services.sh
 # COMANDO DE INICIALIZAÇÃO
 # Define o comando que será executado quando o contêiner for iniciado.
 # ====================================================================
-CMD ["/app/run_services.sh"]
+ENTRYPOINT ["/bin/bash", "/app/run_services.sh"]

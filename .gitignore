@@ -21,3 +21,6 @@ yarn-error.log*
 
 # Google Cloud
 .gcloud/
+
+requirements-local.txt
+app/languagetool/LanguageTool-6.6/

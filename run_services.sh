@@ -31,5 +31,14 @@ if ! curl -s -f --connect-timeout 5 "$LT_URL" > /dev/null; then
   exit 1
 fi
 
-echo "LanguageTool started. Starting Flask app..."
+echo "Performing warm-up request to LanguageTool..."
+WARMUP_START=$(date +%s)
+curl -s -X POST http://localhost:8081/v2/check \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d 'text=texto+inicial+para+warmup&language=pt-BR' > /dev/null
+WARMUP_END=$(date +%s)
+WARMUP_DURATION=$((WARMUP_END - WARMUP_START))
+echo "Warm-up completed in ${WARMUP_DURATION} seconds."
+
+echo "LanguageTool ready and warmed up. Starting Flask app..."
 exec /app/venv/bin/python3 -m flask --app main run --host=0.0.0.0 --port=8080
